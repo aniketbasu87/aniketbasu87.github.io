@@ -17,12 +17,10 @@
       var fallbackLink = "";
 
       // Simple device detection
-      var isiOS =
-        navigator.platform.match("iPad") ||
-        navigator.platform.match("iPhone") ||
-        navigator.platform.match("iPod"),
-        isAndroid = navigator.platform.match("Android") || navigator.platform.match("Linux");
-      document.write(isAndroid);
+      var isiOS = /iPad|iPhone|iPod/i.test(navigator.userAgent);
+      var isAndroid = /Linux|Android/i.test(navigator.userAgent);
+      document.write("<br><p>"+isAndroid+"</p>");
+      document.write("<p>"+isiOS+"</p>");
       // Mobile
       if (isiOS || isAndroid) {
         let appLink = (isiOS)
