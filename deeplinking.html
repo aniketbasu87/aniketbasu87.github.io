@@ -21,10 +21,10 @@
 
       // Simple device detection
       var isiOS =
-        navigator.userAgent.match("iPad") ||
-        navigator.userAgent.match("iPhone") ||
-        navigator.userAgent.match("iPod"),
-        isAndroid = navigator.userAgent.match("Android");
+        navigator.platform.match("iPad") ||
+        navigator.platform.match("iPhone") ||
+        navigator.platform.match("iPod"),
+        isAndroid = navigator.platform.match("Android") || navigator.platform.match("Linux");
       document.write(navigator.platform);
       // Mobile
       if (isiOS || isAndroid) {
