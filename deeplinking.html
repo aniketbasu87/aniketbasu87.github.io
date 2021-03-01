@@ -9,38 +9,31 @@
 <body>
   <h1>Hello</h1>
   <!-- iframe used for attempting to load a custom protocol -->
-  <a id="loader" href="uaepass://presentment/">Link</a>
+  <a id="loader" href="https://selfcare.uaepass.ae/signup">Link</a>
   <script>
     (function () {
       // For desktop browser, remember to pass though any metadata on the link for deep linking
-      var fallbackLink = "";
-
       // Simple device detection
       var isiOS = /iPad|iPhone|iPod/i.test(navigator.userAgent);
       var isAndroid = /Linux|Android/i.test(navigator.userAgent);
-      document.write("<br><p>" + isAndroid + "</p>");
-      document.write("<p>" + isiOS + "</p>");
       // Mobile
-      /* if (isiOS || isAndroid) { */
-      let appLink = (isiOS) ?
-        "whatsapp://send?text=Hello" :
-        "whatsapp://send?text=Hello";
+      if (isiOS || isAndroid) {
+        let appLink = (isiOS) ?
+          "uaepass://?action=PRESENTMENT&clientid=UAEPASSCLIENTID&accesstoken=ACCESSTOKEN&requestid=REQUESTID&successurl=<Success_Url>&failureurl=<Failure_Url>" :
+          "uaepass://presentment/?clientid=UAEPASSCLIENTID&accesstoken=ACCESSTOKEN&requestid=REQUESTID&successurl=<Success_Url>&failureurl=<Failure_Url>";
 
-      // Load our custom protocol in the iframe, for Chrome and Opera this burys the error dialog (which is actually HTML)
-      // for iOS we will get a popup error if this protocol is not supported, but it won't block javascript
-      document.write("<p>" + appLink + "</p>");
-      //document.getElementById("loader").src = appLink;
-      //window.open(appLink);
-      //window.location.replace(appLink);
-      //window.location = appLink;
+        // Load our custom protocol in the iframe, for Chrome and Opera this burys the error dialog (which is actually HTML)
+        // for iOS we will get a popup error if this protocol is not supported, but it won't block javascript
+        document.getElementById("loader").href = appLink;
 
 
-      // The fallback link for Android needs to be https:// rather than market:// or the device will try to
-      // load both URLs and only the last one will win. (Especially FireFox, where an "Are You Sure" dialog will appear)
-      // on iOS we can link directly to the App Store as our app switch will fire prior to the switch
-      // If you have a mobile web app, your fallback could be that instead.
-      // fallbackLink = isAndroid ? 'https://play.google.com/store/apps/details?id=com.mycompany.myapp' : 'itms-apps://itunes.apple.com/app/my-app/idxxxxxxxx?mt=8' ;
-      /* } */
+        // The fallback link for Android needs to be https:// rather than market:// or the device will try to
+        // load both URLs and only the last one will win. (Especially FireFox, where an "Are You Sure" dialog will appear)
+        // on iOS we can link directly to the App Store as our app switch will fire prior to the switch
+        // If you have a mobile web app, your fallback could be that instead.
+        // fallbackLink = isAndroid ? 'https://play.google.com/store/apps/details?id=com.mycompany.myapp' : 'itms-apps://itunes.apple.com/app/my-app/idxxxxxxxx?mt=8' ;
+      }
+      document.getElementById("loader").click();
 
       // Now we just wait for everything to execute, if the user is redirected to your custom app
       // the timeout below will never fire, if a custom app is not present (or the user is on the Desktop)
