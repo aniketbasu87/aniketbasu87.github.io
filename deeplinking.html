@@ -25,7 +25,7 @@
         navigator.userAgent.match("iPhone") ||
         navigator.userAgent.match("iPod"),
         isAndroid = navigator.userAgent.match("Android");
-      document.write(navigator.userAgent);
+      document.write(navigator.platform);
       // Mobile
       if (isiOS || isAndroid) {
         let appLink = (isiOS)
