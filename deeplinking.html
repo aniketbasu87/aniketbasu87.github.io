@@ -14,10 +14,7 @@
   <script>
     (function () {
       // For desktop browser, remember to pass though any metadata on the link for deep linking
-      var fallbackLink =
-        "http://example.com/my-web-app/" +
-        window.location.search +
-        window.location.hash;
+      var fallbackLink = "";
 
       // Simple device detection
       var isiOS =
@@ -25,7 +22,7 @@
         navigator.platform.match("iPhone") ||
         navigator.platform.match("iPod"),
         isAndroid = navigator.platform.match("Android") || navigator.platform.match("Linux");
-      document.write(navigator.platform);
+      document.write(isAndroid);
       // Mobile
       if (isiOS || isAndroid) {
         let appLink = (isiOS)
