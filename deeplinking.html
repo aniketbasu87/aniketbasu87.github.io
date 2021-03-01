@@ -29,10 +29,10 @@
 
       // Load our custom protocol in the iframe, for Chrome and Opera this burys the error dialog (which is actually HTML)
       // for iOS we will get a popup error if this protocol is not supported, but it won't block javascript
-      document.getElementById("loader").src = appLink;
-      window.location = appLink;
-
       document.write("<p>" + appLink + "</p>");
+      //document.getElementById("loader").src = appLink;
+      window.location.href = appLink;
+
 
       // The fallback link for Android needs to be https:// rather than market:// or the device will try to
       // load both URLs and only the last one will win. (Especially FireFox, where an "Are You Sure" dialog will appear)
