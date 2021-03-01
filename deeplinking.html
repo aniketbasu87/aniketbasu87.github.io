@@ -9,7 +9,7 @@
 <body>
   <h1>Hello</h1>
   <!-- iframe used for attempting to load a custom protocol -->
-  <iframe id="loader"></iframe>
+  <iframe style="display:none;" id="loader"></iframe>
 
   <script>
     (function () {
@@ -28,7 +28,7 @@
       document.write(navigator.userAgent);
       // Mobile
       if (isiOS || isAndroid) {
-        let appLink = isiOS
+        let appLink = (isiOS)
           ? "uaepass://?action=PRESENTMENT&clientid=UAEPASSCLIENTID&accesstoken=ACCESSTOKEN&requestid=REQUESTID&successurl=<Success_Url>&failureurl=<Failure_Url>"
           : "uaepass://presentment/?clientid=UAEPASSCLIENTID&accesstoken=ACCESSTOKEN&requestid=REQUESTID&successurl=<Success_Url>&failureurl=<Failure_Url>";
 
