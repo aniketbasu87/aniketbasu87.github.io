@@ -40,9 +40,9 @@
       var isAndroid = /Linux|Android/i.test(navigator.userAgent);
       // Mobile
       /* if (isiOS || isAndroid) { */
-      //let appLink = (isiOS) ?
+      /*let appLink = (isiOS) ?
         "uaepass://?action=PRESENTMENT&clientid=UAEPASSCLIENTID&accesstoken=ACCESSTOKEN&requestid=REQUESTID&successurl=<Success_Url>&failureurl=<Failure_Url>" :
-        "uaepass://presentment/?clientid=UAEPASSCLIENTID&accesstoken=ACCESSTOKEN&requestid=REQUESTID&successurl=<Success_Url>&failureurl=<Failure_Url>";
+        "uaepass://presentment/?clientid=UAEPASSCLIENTID&accesstoken=ACCESSTOKEN&requestid=REQUESTID&successurl=<Success_Url>&failureurl=<Failure_Url>";*/
       let appLink = (isiOS) ? 
           "uaepassqa://?action=PRESENTMENT&clientid=digivault_stage&accesstoken=860ec0094762f119f57d055443e4f5d65fdbed2adabfff08a6d1dae0ade4a400&requestid=223&successurl=uaepassdemoappq://success&failureurl=uaepassdemoappq://failure" :
           "uaepassqa://presentment/?clientid=digivault_stage&accesstoken=860ec0094762f119f57d055443e4f5d65fdbed2adabfff08a6d1dae0ade4a400&requestid=REQUESTID&successurl=<Success_Url>&failureurl=<Failure_Url>";
